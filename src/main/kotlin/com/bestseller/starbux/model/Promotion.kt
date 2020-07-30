@@ -1,6 +1,7 @@
 package com.bestseller.starbux.model
 
 import java.math.BigDecimal
+import java.time.LocalDateTime
 import javax.persistence.*
 import javax.validation.constraints.Max
 import javax.validation.constraints.Min
@@ -16,12 +17,26 @@ data class Promotion(
         @Enumerated(EnumType.STRING)
         val type: PromotionType = PromotionType.CART,
 
-        @field:Min(0)
-        @field:Max(100)
-        val discountPercentage: BigDecimal = BigDecimal.ZERO
-) {
+        val description: String = "",
 
-    enum class PromotionType {
-        CART, ITEM
-    }
+        @field:Min(0)
+        val discountValue: BigDecimal = BigDecimal.ZERO,
+
+        val input: List<Item> = ArrayList(),
+
+        val output: List<Item> = ArrayList(),
+
+        val enabled: Boolean = true,
+
+        val startDate: LocalDateTime = LocalDateTime.now(),
+
+        val endDate: LocalDateTime = LocalDateTime.now()
+)
+
+enum class PromotionType {
+    CART, ITEM
+}
+
+enum class DiscountStrategy {
+    LOWEST_VALUE, HIGHEST_VALUE
 }
