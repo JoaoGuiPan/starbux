@@ -8,12 +8,4 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
 
-promotions:
-  discountStrategy: ${PROMO_DISCOUNT_STRATEGY:LOWEST_VALUE}
-  cart:
-    triggerAmount: ${CART_PROMO_TRIGGER:12}
-    discountPercentage: ${CART_PROMO_DISCOUNT_PERCENTAGE:25}
-  item:
-    triggerQty: ${ITEM_PROMO_TRIGGER:3}
-    triggerItemCategory: ${ITEM_PROMO_TRIGGER_CATEGORY:TOPPING_OR_SIDE}
-    discountPercentage: ${ITEM_PROMO_DISCOUNT_PERCENTAGE:100}
+currency: ${CURRENCY:EUR}

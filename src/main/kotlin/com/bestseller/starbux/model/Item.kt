@@ -16,7 +16,9 @@ data class Item(
 
         var description: String = "",
 
-        var price: BigDecimal = BigDecimal.ZERO
+        var price: BigDecimal = BigDecimal.ZERO,
+
+        val currency: String = "EUR"
 ) {
         enum class ItemCategory {
                 DRINK, TOPPING_OR_SIDE

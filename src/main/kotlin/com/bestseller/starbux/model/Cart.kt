@@ -24,7 +24,9 @@ data class Cart(
 
         @field:NotEmpty
         // not nullable because, in true starbux fashion, you have to give out your name :)
-        var customer: String = ""
+        var customer: String = "",
+
+        val currency: String = "EUR"
 ) {
         fun calculateTotalPrice() {
                 totalPrice = items.map {

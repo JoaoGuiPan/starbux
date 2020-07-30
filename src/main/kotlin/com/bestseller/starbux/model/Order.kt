@@ -27,7 +27,9 @@ data class Order(
         // not nullable because, in true starbux fashion, you have to give out your name :)
         val customer: String = "",
 
-        val date: LocalDateTime = LocalDateTime.now()
+        val date: LocalDateTime = LocalDateTime.now(),
+
+        val currency: String = "EUR"
 )
 
 data class OrderFilter(
