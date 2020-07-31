@@ -1,5 +1,6 @@
 package com.bestseller.starbux.model
 
+import com.bestseller.starbux.common.CONSTANTS.Companion.DEFAULT_CURRENCY
 import java.math.BigDecimal
 import java.time.LocalDateTime
 import javax.persistence.*
@@ -29,7 +30,7 @@ data class Order(
 
         val date: LocalDateTime = LocalDateTime.now(),
 
-        val currency: String = "EUR"
+        val currency: String = DEFAULT_CURRENCY
 )
 
 data class OrderFilter(

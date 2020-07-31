@@ -1,10 +1,12 @@
 package com.bestseller.starbux.view.controller
 
-import com.bestseller.starbux.common.CreateRepository
-import com.bestseller.starbux.common.DeleteRepository
-import com.bestseller.starbux.common.ListRepository
-import com.bestseller.starbux.common.UpdateRepository
+import com.bestseller.starbux.common.*
+import com.bestseller.starbux.common.CONSTANTS.Companion.DEFAULT_CURRENCY
+import com.bestseller.starbux.common.CONSTANTS.Companion.HAS_ANY_ROLE
+import com.bestseller.starbux.common.CONSTANTS.Companion.IS_ADMIN
 import com.bestseller.starbux.model.Item
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -16,16 +18,27 @@ data class ItemController(
         private val itemDelete: DeleteRepository<Item>
 ) {
 
+    @Value("currency")
+    private val currency: String = DEFAULT_CURRENCY
+
     @GetMapping
+    @PreAuthorize(HAS_ANY_ROLE)
     fun getItems() = itemList.listAll()
 
     @GetMapping("/{item}")
+    @PreAuthorize(HAS_ANY_ROLE)
     fun getById(@PathVariable item: Item) = item
 
     @PostMapping
-    fun createItem(@RequestBody item: Item) = itemCreate.create(item)
+    @PreAuthorize(IS_ADMIN)
+    fun createItem(@RequestBody item: Item) = itemCreate.create(
+            item.copy(
+                    currency = currency
+            )
+    )
 
     @PutMapping("/{item}")
+    @PreAuthorize(IS_ADMIN)
     fun updateItem(@PathVariable item: Item, @RequestBody body: Item) =
             itemUpdate.update(
                     item.copy(
@@ -36,6 +49,7 @@ data class ItemController(
             )
 
     @DeleteMapping("/{item}")
+    @PreAuthorize(IS_ADMIN)
     fun deleteItem(@PathVariable item: Item) {
         itemDelete.delete(item)
     }

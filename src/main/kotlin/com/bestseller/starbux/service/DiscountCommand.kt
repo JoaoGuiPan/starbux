@@ -1,5 +1,6 @@
 package com.bestseller.starbux.service
 
+import com.bestseller.starbux.common.CONSTANTS.Companion.CART_FACT
 import com.bestseller.starbux.model.Cart
 import com.bestseller.starbux.service.promotion.MoreThanTwelveEurosDiscountRule
 import com.bestseller.starbux.service.promotion.ThirdDrinkFreeDiscountRule
@@ -11,14 +12,12 @@ import org.jeasy.rules.core.DefaultRulesEngine
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
-private const val CART_FACT = "cart"
-
 @Service
 class DiscountCommand {
 
     fun applyDiscounts(cart: Cart) {
 
-        // TODO READ FROM FILE OR DB
+        // TODO READ FROM FILE OR DB?
         val moreThanTwelveEurosDiscountRule = MoreThanTwelveEurosDiscountRule()
         val thirdDrinkFreeDiscountRule = ThirdDrinkFreeDiscountRule()
 

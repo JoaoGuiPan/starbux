@@ -1,5 +1,6 @@
 package com.bestseller.starbux.config
 
+import com.bestseller.starbux.common.CONSTANTS.Companion.DEFAULT_CURRENCY
 import com.bestseller.starbux.common.CreateRepository
 import com.bestseller.starbux.model.Item
 import org.springframework.beans.factory.annotation.Value
@@ -13,7 +14,7 @@ data class InitializeDataConfig(
 ) {
 
     @Value("currency")
-    private val currency: String = "EUR"
+    private val currency: String = DEFAULT_CURRENCY
 
     @PostConstruct
     fun init() {

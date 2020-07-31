@@ -1,5 +1,6 @@
 package com.bestseller.starbux.model
 
+import com.bestseller.starbux.common.CONSTANTS.Companion.DEFAULT_CURRENCY
 import java.math.BigDecimal
 import javax.persistence.*
 
@@ -18,7 +19,7 @@ data class Item(
 
         var price: BigDecimal = BigDecimal.ZERO,
 
-        val currency: String = "EUR"
+        val currency: String = DEFAULT_CURRENCY
 ) {
         enum class ItemCategory {
                 DRINK, TOPPING_OR_SIDE

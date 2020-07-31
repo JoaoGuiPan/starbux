@@ -1,5 +1,6 @@
 package com.bestseller.starbux.model
 
+import com.bestseller.starbux.common.CONSTANTS.Companion.DEFAULT_CURRENCY
 import java.math.BigDecimal
 import javax.persistence.*
 import javax.validation.constraints.NotEmpty
@@ -26,7 +27,7 @@ data class Cart(
         // not nullable because, in true starbux fashion, you have to give out your name :)
         var customer: String = "",
 
-        val currency: String = "EUR"
+        val currency: String = DEFAULT_CURRENCY
 ) {
         fun calculateTotalPrice() {
                 totalPrice = items.map {
@@ -36,10 +37,6 @@ data class Cart(
 
         fun setDiscount(value: BigDecimal) {
                 totalDiscount = value
-        }
-
-        fun addDiscount(value: BigDecimal) {
-                totalDiscount += value
         }
 
         fun calculateNetPrice() {
