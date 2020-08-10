@@ -1,5 +1,12 @@
 # Starbux
-Starbux sample API
+Starbux sample REST API
+
+# Overview
+This is a simple portfolio REST API I made to showcase a bit of my skills as well as being my personal coding playground! It's meant to be simple and easy to configure/run, so I made a few sacrifices, namely:
+    
+   - in-memory database
+   - in-memory Basic Authentication
+   - "hard-coded" promotions
 
 # Requirements
 
@@ -32,3 +39,6 @@ There are also some Postman files included in the project (a collection and 2 en
 Access the stage environment API at
 
     https://starbux.herokuapp.com
+
+# Final considerations
+Thank you for checking it out! I know it's not perfect, so please tell me what you think (`joaoguilhermepan@gmail.com`) or maybe open a pull request? Cheers!
