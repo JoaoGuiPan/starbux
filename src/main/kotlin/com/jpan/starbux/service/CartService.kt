@@ -12,7 +12,7 @@ data class CartService(
         private val cartCreate: CreateRepository<Cart>,
         private val cartUpdate: UpdateRepository<Cart>,
         private val cartDelete: DeleteRepository<Cart>
-): CreateService<Cart>, UpdateService<Cart> {
+): CreateService<Cart>, UpdateService<Cart, Cart> {
 
     @Value("\${currency:EUR}")
     private val currency: String = DEFAULT_CURRENCY

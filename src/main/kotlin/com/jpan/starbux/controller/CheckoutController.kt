@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("checkout")
 data class CheckoutController(
         private val createCartService: CreateService<Cart>,
-        private val updateCartService: UpdateService<Cart>,
+        private val updateCartService: UpdateService<Cart, Cart>,
         private val deleteCartRepository: DeleteRepository<Cart>,
         private val checkoutCommand: CheckoutCommand
 ) {
